@@ -25,16 +25,153 @@ melon.display(1024, 576, "Melon", A16x9);
 To prevent the display from closing immediately you can use a while loop.
 ```cpp
 while (!melon.checkClosedState()) {
-  melon.clear()
+  melon.clear();
   
   melon.update();
 }
 ```
-* ```melon.checkClosedState``` returns if the display was closed
+* ```melon.checkClosedState()``` returns if the display was closed
 * ```melon.clear()``` clears the display
 * ```melon.update()``` updates the display
 ### Creating Quads
 ```cpp
-void createQuad(Vec2 position, float rotation, Vec2 scale, Vec3 color);
+void createQuad(Vec2 position, float rotation, Vec2 scale, Vec4 color);
 ```
 #### Parameters
+* _position_ sets the position of the quad
+* _rotation_ sets the rotation of the quad
+* _scale_ sets the scale of the quad
+* _color_ sets the color of the quad
+> _color_ is optional and is defaulted to { 0.0f, 0.0f, 0.0f, 1.0f }
+> **Note**
+> all colors in melon 2D are set up in RGBA format
+#### Example
+```cpp
+while (!melon.checkClosedState()) {
+  melon.clear();
+  
+    createQuad({ 2.0f, 2.0f }, 0.0f, { 3.0f, 3.0f }, { 1.0f, 0.0f, 0.0f, 1.0f });
+    
+  melon.update();
+}
+```
+> **Note**
+> make sure that createQuad is in between ```melon.clear()``` and ```melon.update()```
+### Adding Background Color
+```cpp
+melon.BackgroundColor = { float red, float green, float blue, float alpha };
+```
+> **Note**
+> ```melon.BackgroundColor``` is considered a Vec4 just like all colors in melon 2D
+### Changing Display size
+```cpp
+changeDisplaySize(int width, int height);
+```
+#### Parameters
+* _width_ new display width
+* _height_ new display height
+### Changing Display Title
+```cpp
+changeDisplayTitle(const char* title);
+```
+#### Parameters
+* _title_ new display title
+### Changing Aspect Ratio
+```cpp
+changeAspectRatio(int aspectRatio);
+```
+* _aspectRatio_ new display aspect ratio
+### Full Screen
+```cpp
+setFullScreenState(bool state);
+```
+* _state_ controls weither the display should fullscreen or not
+### How to retrieve
+```cpp
+getScreenSize();
+```
+> This function returns a Vec2
+# Math Library
+### Creating 2D Vectors
+```cpp
+mln::Vec2 vector2d = { float x, float y };
+```
+### Adding 2D Vectors
+```cpp
+AddVec2(Vec2 vector1, Vec2 vector2);
+```
+> This function returns a Vec2
+#### Parameters
+* _vector1_ first vector you would like to add
+* _vector2_ second vector you would like to add
+### Normalizing 2D Vectors
+```cpp
+mln::Vec2 vector2d = { 1.0f, 1.0f };
+vector2d.Normalize();
+```
+### Creating 3D Vectors
+```cpp
+mln::Vec3 vector3 = { float x, float y, float z };
+```
+### Adding 3D Vectors
+```cpp
+AddVec3(Vec3 vector1, Vec3 vector2);
+```
+> This function returns a Vec3
+#### Parameters
+* _vector1_ first vector you would like to add
+* _vector2_ second vector you would like to add
+### Creating 4D Vectors
+```cpp
+mln::Vec4 vector4 = { float x, float y, float z, float w };
+```
+### Adding 4D Vectors
+```cpp
+AddVec4(Vec4 vector1, Vec4 vector2);
+```
+> This function returns a Vec4
+#### Parameters
+* _vector1_ first vector you would like to add
+* _vector2_ second vector you would like to add
+
+# Texture Class
+### Creating Texture
+```cpp
+mln::texture img(const char* path, int filetype);
+```
+#### Parameters
+* _path_ path to image
+* _filetype_ type of image
+> **Note**
+> the definitions for filetype are
+> PNG, JPG
+### How to use texture
+```cpp
+mln::texture img("melonimage.png", PNG);
+
+while (!melon.checkClosedState()) {
+  melon.clear();
+    
+    img.activate();
+    createQuad({ 2.0f, 2.0f }, 0.0f, { 3.0f, 3.0f }, { 1.0f, 0.0f, 0.0f, 1.0f });
+    
+  melon.update();
+}
+```
+> **Note**
+> you must activate the texture before calling ```createQuad()``` if you want the quad to use the texture.
+> Also if you activate another texture it will automatically deactivate the previous texture.
+### How to deactivate texture
+```cpp
+mln::texture img("melonimage.png", PNG);
+
+while (!melon.checkClosedState()) {
+  melon.clear();
+    
+    img.activate();
+    createQuad({ 2.0f, 2.0f }, 0.0f, { 3.0f, 3.0f }, { 1.0f, 0.0f, 0.0f, 1.0f });
+    img.deactivate();
+    
+  melon.update();
+}
+```
