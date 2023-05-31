@@ -63,6 +63,24 @@ melon.BackgroundColor = { float red, float green, float blue, float alpha };
 ```
 > **Note**
 > ```melon.BackgroundColor``` is considered a Vec4 just like all colors in melon 2D
+### Getting User Input
+```cpp
+melon.getKeyPressed(int key)
+```
+> This function returns a boolean
+#### Parameters
+* _key_ key that you want to check
+> **Note**
+> you can find all key definitions in "input.md" 
+#### Checking if Key is Released
+```cpp
+getKeyReleased(int key)
+```
+> This function returns a boolean
+#### Parameters
+* _key_ key that you want to check
+> **Note**
+> you can find all key definitions in "input.md" 
 ### Changing Display size
 ```cpp
 changeDisplaySize(int width, int height);
