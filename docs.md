@@ -1,3 +1,12 @@
+# Getting Started
+This is the official tutorial for Melon 2D. For more tutorials and information check out our youtube channel https://www.youtube.com/@blastshieldstudios
+# How to Install
+Visual studio 2022 is recommended. It could potentialy work on other versions of visual studio but it hasn't been tested yet.
+1. Download Dependencies 
+* ###### Melon 2D requires that glew, glfw, glm, and stb image are added to the project. The installation guide for those will not be included here but there will be a video on our youtube channel.
+2. Download Melon 2D
+* ###### Yet again I will not cover how to install melon 2D here but a video is available on our youtube channel
+
 # Master Class
 The master class allows us to create a display, control the camera, get user input, and render quads on screen.
 ```cpp
