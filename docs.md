@@ -1,7 +1,7 @@
 # Getting Started
 This is the official tutorial for Melon 2D.
 # How to Install/Compile
-Download melon 2D to whaat ever directory you want in your project then add this to your CMakeLists file
+Download melon 2D to what ever directory you want in your project then add this to your CMakeLists file
 ```
 add_subdirectory({PATH_TO_MELON2D}/Melon2D)
 target_link_libraries({YOUR_PROJECT_NAME} melon)
