@@ -1,11 +1,19 @@
 # Getting Started
-This is the official tutorial for Melon 2D. For more tutorials and information check out our youtube channel https://www.youtube.com/@blastshieldstudios
-# How to Install
-Visual studio 2022 is recommended. It could potentialy work on other versions of visual studio but it hasn't been tested yet.
-1. Download Dependencies 
-* ###### Melon 2D requires that glew, glfw, glm, and stb image are added to the project. The installation guide for those will not be included here but there will be a video on our youtube channel.
-2. Download Melon 2D
-* ###### Yet again I will not cover how to install melon 2D here but a video is available on our youtube channel
+This is the official tutorial for Melon 2D.
+# How to Install/Compile
+Download melon 2D to whaat ever directory you want in your project then add this to your CMakeLists file
+```
+add_subdirectory({PATH_TO_MELON2D}/Melon2D)
+target_link_libraries({YOUR_PROJECT_NAME} melon)
+target_include_directories(test PRIVATE {PATH_TO_MELON2D}/Melon2D/src)
+```
+Then just build cmake
+```
+mkdir build
+cd build
+cmake ../
+cmake --build .
+```
 
 # Master Class
 The master class allows us to create a display, control the camera, get user input, and render quads on screen.
