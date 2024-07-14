@@ -1,5 +1,5 @@
 # Melon 2D
-A simple 2D graphics framework created by Blast Shield Studios that can be use to create simple 2D applications and games.
+A simple 2D graphics framework created by Master Toad that can be use to create simple 2D applications and games.
 
 # How to Install/Compile
 Download melon 2D to what ever directory you want in your project then add this to your CMakeLists file
